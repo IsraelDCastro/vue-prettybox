@@ -1,0 +1,17 @@
+.image-galley-wrap {
+  display: grid;
+  .image-gallery {
+    cursor: zoom-in;
+  }
+  &.squared {
+    > .image-gallery {
+      aspect-ratio: 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+img {
+  width: auto;
+}
+.single-image-prettybox,
+.image-galley-prettybox {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1rem 4.615rem;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  .image-gallery, {
+    cursor: auto;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    figcaption {
+      font-size: .875rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(0 0 0 / 40%);
+      padding: 1rem;
+      color: #FFF;
+    }
+  }
+}
+
+
+.single-image-prettybox {
+  .single-image {
+    cursor: auto;
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    figcaption {
+      font-size: .875rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(0 0 0 / 40%);
+      padding: 1rem;
+      color: #FFF;
+    }
+  }
+}
+
+.image-galley-prettybox {
+  .image-gallery, {
+    cursor: auto;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    figcaption {
+      font-size: .875rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(0 0 0 / 40%);
+      padding: 1rem;
+      color: #FFF;
+    }
+  }
+}
+
+.is-rounded {
+  border-radius: 5px;
+}
+
+.is-circled {
+  border-radius: 50%;
+}
+
+.has-shadow {
+  box-shadow: $base-shadow;
+}
+
+.bg-backdrop {
+  background-color: rgb(0 0 0 / 30%);
+  backdrop-filter: blur(.25rem);
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-content: center;
+  background-color: rgb(0 0 0 / 10%);
+  backdrop-filter: blur(.20rem);
+  border-radius: .25rem;
+  z-index: 25;
+  color: #FFF;
+  transition: all .3s ease-in-out;
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  &:hover {
+    background-color: $secondary-color-100;
+  }
+}
+
+.left-button,
+.right-button {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-content: center;
+  background-color: rgb(0 0 0 / 10%);
+  backdrop-filter: blur(.20rem);
+  border-radius: .25rem;
+  z-index: 25;
+  color: #FFF;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background-color: $blue-color-100;
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    &:hover {
+      background-color: rgb(0 0 0 / 15%);
+    }
+  }
+}
+
+.left-button {
+  top: 50%;
+  left: 2%;
+}
+
+.right-button {
+  top: 50%;
+  right: 2%;
+}

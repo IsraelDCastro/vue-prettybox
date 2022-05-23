@@ -1,0 +1,24 @@
+.single-image {
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+  height: 100%;
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
+  figcaption {
+    font-size: .875rem;
+    color: #999;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .single-image-prettybox {
+    padding: 1rem;
+    .single-image {
+      display: block;
+      height: auto;
+    }
+  }
+}

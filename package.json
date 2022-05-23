@@ -1,0 +1,37 @@
+{
+  "name": "vue-prettybox",
+  "version": "1.0.0-beta-1",
+  "description": "It is a tool dependency that allows you to open or zoom image just by click it. It helps you to view the image to have a better look of it without making zoom in on your browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsraelDCastro/vue-prettybox.git"
+  },
+  "keywords": [
+    "ZoomIn",
+    "SCSS",
+    "Modal",
+    "Image",
+    "Prettybox",
+    "Pretty",
+    "Box",
+    "Vue",
+    "VueJS",
+    "Vue3",
+    "Vue components",
+    "Components"
+  ],
+  "author": {
+    "name": "Israel De Castro Alfonso",
+    "email": "israeldalfons@gmail.com",
+    "url": "https://castrodev.netlify.app/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IsraelDCastro/vue-prettybox/issues"
+  },
+  "homepage": "https://github.com/IsraelDCastro/vue-prettybox#readme"
+}
