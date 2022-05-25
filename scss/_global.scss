@@ -159,3 +159,13 @@ img {
   top: 50%;
   right: 2%;
 }
+
+@media only screen and (max-width: 767px) {
+  .close-button {
+    left: 50%;
+    bottom: 5%;
+    top: auto;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}

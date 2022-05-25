@@ -161,6 +161,15 @@ img {
   right: 2%;
 }
 
+@media only screen and (max-width: 767px) {
+  .close-button {
+    left: 50%;
+    bottom: 5%;
+    top: auto;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
 /* Backdrop animations */
 .backdrop-enter-active,
 .backdrop-leave-active {
@@ -315,13 +324,19 @@ img {
   color: #999;
 }
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 767px) {
   .single-image-prettybox {
     padding: 1rem;
   }
   .single-image-prettybox .single-image {
     display: block;
-    height: auto;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .single-image-prettybox .single-image figcaption {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 .image-galley-wrap {
