@@ -35,7 +35,6 @@ img {
   }
 }
 
-
 .single-image-prettybox {
   .single-image {
     cursor: auto;
@@ -167,5 +166,10 @@ img {
     top: auto;
     right: auto;
     transform: translateX(-50%);
+  }
+  .left-button,
+  .right-button {
+    top: auto;
+    bottom: 5%;
   }
 }

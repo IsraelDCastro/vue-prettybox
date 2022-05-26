@@ -1,5 +1,5 @@
 <script>
-  const randomNumber = Math.ceil(Math.random() * 200);
+const randomNumber = Math.ceil(Math.random() * 200);
 </script>
 
 <script setup>
@@ -15,6 +15,10 @@ const openCloseImageGalleryBox = (indexPosition) => {
   position.value = indexPosition
 }
 
+const image_gallery = ref(null);
+const imageGalleryWidth = ref(null)
+const imageGalleryHeight = ref(null)
+
 const closeBackdrop = () => props.bgBackdropClose ? openImageGalleryBox.value = !openImageGalleryBox.value : null
 const prev = () => position.value -= 1;
 const next = () => position.value += 1;
@@ -22,14 +26,14 @@ const props = defineProps({
   imagesUrl: {
     type: Array,
     default: [
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 1}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 2}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 3}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 4}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 5}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 6}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 7}`, alt: '' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 8}`, alt: '' }
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 1}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 2}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 3}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 4}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 5}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 6}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 7}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/1280/720?random=${randomNumber + 8}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' }
     ],
     required: true
   },
@@ -37,10 +41,6 @@ const props = defineProps({
     type: String,
     default: 'fade',
     required: true
-  },
-  figcaption: {
-    type: Boolean,
-    default: false
   },
   isRounded: {
     type: Boolean,
@@ -70,7 +70,7 @@ const props = defineProps({
     type: Number,
     default: 3
   },
-  sxColumns: {
+  xsColumns: {
     type: Number,
     default: 2
   },
@@ -78,6 +78,11 @@ const props = defineProps({
     type: String,
     default: "20px"
   },
+})
+
+onMounted (() => {
+  imageGalleryWidth.value = image_gallery.value[0].clientWidth;
+  imageGalleryHeight.value = image_gallery.value[0].clientHeight;
 })
 </script>
 <template>
@@ -97,6 +102,9 @@ const props = defineProps({
           {'is-circled': props.isCircled },
           {'has-shadow': props.hasShadow }
         ]"
+        ref="image_gallery"
+        :width="imageGalleryHeight"
+        :height="imageGalleryHeight"
         loading="lazy"
         @click="openCloseImageGalleryBox(index)"
       >
@@ -126,7 +134,7 @@ const props = defineProps({
         >
           <Right />
         </button>
-        <template v-for="(image, indexImg) in props.imagesUrl">
+        <template v-for="(image, indexImg) in props.imagesUrl" :key="indexImg">
           <TransitionGroup name="slider-item" mode="out-in">
             <figure
               v-if="indexImg === position"
@@ -144,6 +152,9 @@ const props = defineProps({
                 ]"
                 loading="lazy"
               >
+              <figcaption v-if="image.figcaption">
+                {{ image.figcaption }}
+              </figcaption>
             </figure>
           </TransitionGroup>
         </template>
@@ -165,7 +176,7 @@ const props = defineProps({
 
   @media only screen and (max-width: 575px) {
     .image-galley-wrap {
-      grid-template-columns: repeat(v-bind(sxColumns), 1fr);
+      grid-template-columns: repeat(v-bind(xsColumns), 1fr);
     }
   }
 </style>
