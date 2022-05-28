@@ -46,8 +46,7 @@ With this component, you can zoom in on an image to see it near and better view 
 />
 ```
 
-Accepted
-props: `animation, imageUrl, alt, isRounded/is-rounded, isCircled/is-circled, hasShadow/has-shadow, figcaption, and bgBackdropClose`.
+Accepted props: `animation, imageUrl, alt, isRounded/is-rounded, isCircled/is-circled, hasShadow/has-shadow, figcaption, and bgBackdropClose`.
 
 <table>
   <thead>
@@ -103,6 +102,103 @@ props: `animation, imageUrl, alt, isRounded/is-rounded, isCircled/is-circled, ha
       <td>Empty</td>
       <td>
         Add figcaption text to image, it is visible only when you open the image.
+      </td>
+    </tr>
+    <tr>
+      <td>bgBackdropClose</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>You can close the image modal by clicking the background.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Image gallery
+
+Image gallery component you can zoom in on an image to see it near and better view it, also you have a slider in the modal to see other ones.
+
+Accepted props: `animation, imagesUrl, isRounded/is-rounded, isCircled/is-circled, hasShadow/has-shadow, squared, figcaption, columns, mdColumns, xsColumns, space and bgBackdropClose`.
+
+imagesUrl structure:
+```bash
+[{ img: "...", alt: "...", figcaption: "..." }]
+```
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>imagesUrl</td>
+      <td>Array</td>
+      <td>8 random Picsum photos</td>
+      <td>
+        URLs for the images to zoom in. Structure below:
+      </td>
+    </tr>
+    <tr>
+      <td>animation</td>
+      <td>String</td>
+      <td>fade</td>
+      <td>Animation to open modal with the image.</td>
+    </tr>
+    <tr>
+      <td>isRounded</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>Add little rounded corners.</td>
+    </tr>
+    <tr>
+      <td>isCircled</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>
+        Make a circle with the image, it works better with a square image.
+      </td>
+    </tr>
+    <tr>
+      <td>hasShadow</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>Add a little shadow to the images.</td>
+    </tr>
+    <tr>
+      <td>squared</td>
+      <td>Boolean</td>
+      <td>false</td>
+      <td>All images are squared.</td>
+    </tr>
+    <tr>
+      <td>columns</td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Quantity of columns on desktop.</td>
+    </tr>
+    <tr>
+      <td>mdColumns</td>
+      <td>Number</td>
+      <td>3</td>
+      <td>Quantity of columns on tablet.</td>
+    </tr>
+    <tr>
+      <td>xsColumns</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Quantity of columns on mobile.</td>
+    </tr>
+    <tr>
+      <td>space</td>
+      <td>String</td>
+      <td>20px</td>
+      <td>
+        Gap space for each column, you can use <strong>px, rem, em</strong>,
+        etc.
       </td>
     </tr>
     <tr>
