@@ -117,6 +117,13 @@ Accepted props: `animation, imageUrl, alt, isRounded/is-rounded, isCircled/is-ci
 
 Image gallery component you can zoom in on an image to see it near and better view it, also you have a slider in the modal to see other ones.
 
+```bash 
+<ImageGallery
+  animation="..." imageUrl="..."
+  is-rounded has-shadow
+/>
+```
+
 Accepted props: `animation, imagesUrl, isRounded/is-rounded, isCircled/is-circled, hasShadow/has-shadow, squared, figcaption, columns, mdColumns, xsColumns, space and bgBackdropClose`.
 
 imagesUrl structure:
