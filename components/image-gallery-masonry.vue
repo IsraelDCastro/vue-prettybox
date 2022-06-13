@@ -1,5 +1,5 @@
 <script>
-const randomNumber = Math.ceil(Math.random() * 100);
+const randomNumber = Math.ceil(Math.random() * 200);
 </script>
 
 <script setup>
@@ -15,7 +15,7 @@ const openCloseImageGalleryBox = (indexPosition) => {
   position.value = indexPosition
 }
 
-const image_gallery = ref(null);
+const image_gallery_masonry = ref(null);
 const imageGalleryWidth = ref(null)
 const imageGalleryHeight = ref(null)
 
@@ -27,13 +27,13 @@ const props = defineProps({
     type: Array,
     default: [
       { img: `https://picsum.photos/1280/720?random=${randomNumber + 1}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 2}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 3}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/720/1280?random=${randomNumber + 2}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/720/720?random=${randomNumber + 3}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
       { img: `https://picsum.photos/1280/720?random=${randomNumber + 4}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 5}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 6}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/720/720?random=${randomNumber + 5}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
+      { img: `https://picsum.photos/720/1280?random=${randomNumber + 6}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
       { img: `https://picsum.photos/1280/720?random=${randomNumber + 7}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' },
-      { img: `https://picsum.photos/1280/720?random=${randomNumber + 8}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' }
+      { img: `https://picsum.photos/720/1280?random=${randomNumber + 8}`, alt: 'Lorem ipsum', figcaption: 'Lorem ipsum dolor sit amet' }
     ],
     required: true
   },
@@ -47,10 +47,6 @@ const props = defineProps({
     default: false
   },
   isCircled: {
-    type: Boolean,
-    default: false
-  },
-  squared: {
     type: Boolean,
     default: false
   },
@@ -81,18 +77,15 @@ const props = defineProps({
 })
 
 onMounted (() => {
-  imageGalleryWidth.value = image_gallery.value[0].clientWidth;
-  imageGalleryHeight.value = image_gallery.value[0].clientHeight;
+  imageGalleryWidth.value = image_gallery_masonry.value[0].clientWidth;
+  imageGalleryHeight.value = image_gallery_masonry.value[0].clientHeight;
 })
 </script>
 <template>
   <div
-    class="image-galley-wrap"
-    :class="[
-      {'squared': props.squared },
-    ]"
+    class="image-galley-masonry-wrap"
   >
-    <figure v-for="(image, index) in props.imagesUrl" :key="index" class="image-gallery">
+    <figure v-for="(image, index) in props.imagesUrl" :key="index" class="image-gallery-masonry">
       <img
         :src="image.img"
         :alt="image.alt"
@@ -102,7 +95,7 @@ onMounted (() => {
           {'is-circled': props.isCircled },
           {'has-shadow': props.hasShadow }
         ]"
-        ref="image_gallery"
+        ref="image_gallery_masonry"
         :width="imageGalleryHeight"
         :height="imageGalleryHeight"
         loading="lazy"
@@ -164,19 +157,26 @@ onMounted (() => {
 </template>
 
 <style lang="scss" scoped>
-  .image-galley-wrap {
+  .image-galley-masonry-wrap {
+    columns: v-bind(columns);
+  }
+  .image-galley-masonry-wrap {
     gap: v-bind(space);
-    grid-template-columns: repeat(v-bind(columns), 1fr);
+    .image-gallery-masonry {
+      &:not(:last-child) {
+        margin-bottom: v-bind(space);
+      }
+    }
   }
   @media only screen and (max-width: 989px) {
-    .image-galley-wrap {
-      grid-template-columns: repeat(v-bind(mdColumns), 1fr);
+    .image-galley-masonry-wrap {
+      columns: v-bind(mdColumns);
     }
   }
 
   @media only screen and (max-width: 575px) {
-    .image-galley-wrap {
-      grid-template-columns: repeat(v-bind(xsColumns), 1fr);
+    .image-galley-masonry-wrap {
+      columns: v-bind(xsColumns);
     }
   }
 </style>

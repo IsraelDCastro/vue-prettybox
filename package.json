@@ -1,6 +1,6 @@
 {
   "name": "vue-prettybox",
-  "version": "1.0.3-beta-2",
+  "version": "1.0.0",
   "description": "It is a tool dependency that allows you to open or zoom image just by click it. It helps you to view the image to have a better look of it without making zoom in on your browser.",
   "main": "index.js",
   "scripts": {

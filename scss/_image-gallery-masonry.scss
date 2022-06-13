@@ -1,0 +1,22 @@
+.image-galley-masonry-wrap {
+  margin-bottom: 30px;
+  .image-gallery-masonry {
+    cursor: zoom-in;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .image-galley-prettybox {
+    padding: 1rem;
+    .image-gallery {
+      display: block;
+      height: fit-content;
+      top: 50%;
+      transform: translateY(-50%);
+      figcaption {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
